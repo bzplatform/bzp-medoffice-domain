@@ -25,9 +25,9 @@ public class Appointment implements Serializable {
    @JoinColumn(name = "patient_id", nullable = false)
    @ManyToOne(cascade = CascadeType.REFRESH)
    private Patient patient;
-   @JoinColumn(name = "provider_id", nullable = false)
+   @JoinColumn(name = "office_provider_id", nullable = false)
    @ManyToOne(cascade = CascadeType.REFRESH)
-   private Provider provider;
+   private OfficeProvider officeProvider;
    @Column(name = "authorization_number")
    private String authorizationNumber;   
    @Column(name = "date")
@@ -107,12 +107,12 @@ public class Appointment implements Serializable {
       this.patient = patient;
    }
 
-   public Provider getProvider() {
-      return provider;
+   public OfficeProvider getOfficeProvider() {
+      return officeProvider;
    }
 
-   public void setProvider(Provider provider) {
-      this.provider = provider;
+   public void setOfficeProvider(OfficeProvider officeProvider) {
+      this.officeProvider = officeProvider;
    }
 
    public String getAuthorizationNumber() {

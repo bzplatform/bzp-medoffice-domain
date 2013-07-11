@@ -12,9 +12,9 @@ public class ProviderAppointmentCategory implements Serializable {
    @Column(name = "id")
    private Integer id;
    @Basic(optional = false)
-   @Column(name = "provider_id")
-   private int providerId;
-   @JoinColumn(name = "visit_category_id", nullable = false)
+   @Column(name = "office_provider_id")
+   private int officeProviderId;
+   @JoinColumn(name = "visit_category_code", nullable = false)
    @ManyToOne
    private VisitCategory visitCategory;
    @Column(name = "duration")
@@ -28,12 +28,12 @@ public class ProviderAppointmentCategory implements Serializable {
       this.id = id;
    }
 
-   public int getProviderId() {
-      return providerId;
+   public int getOfficeProviderId() {
+      return officeProviderId;
    }
 
-   public void setProviderId(int providerId) {
-      this.providerId = providerId;
+   public void setOfficeProviderId(int officeProviderId) {
+      this.officeProviderId = officeProviderId;
    }
 
    public VisitCategory getVisitCategory() {

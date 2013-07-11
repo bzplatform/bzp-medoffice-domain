@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                 xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm orm_1_0.xsd"
+                 version="1.0">
+   <persistence-unit-metadata>
+      <!--        <xml-mapping-metadata-complete/>-->
+      <persistence-unit-defaults>
+         <!--schema>HR</schema-->
+         <access>FIELD</access>
+         <!--            <cascade-persist/>   -->
+      </persistence-unit-defaults>
+   </persistence-unit-metadata>
+   <package>medoffice.entity</package>
+   <entity class="Appointment">
+      <named-query name="Appointment.findByDateProvider">
+         <query>SELECT a FROM Appointment a WHERE a.date BETWEEN :startDate AND :endDate AND
+            a.officeProvider.id = :providerId AND a.status &lt;&gt; 'CANCELLED'
+            ORDER BY a.date, a.time
+         </query>
+      </named-query>
+      <named-query name="AppointmentTime.findByDateProvider">
+         <query>SELECT new medoffice.schedule.AppointmentTime(a.date, a.time, a.duration) FROM Appointment a WHERE a.date BETWEEN :startDate AND :endDate AND
+            a.officeProvider.id = :providerId AND a.status &lt;&gt; 'CANCELLED'
+            ORDER BY a.date, a.time
+         </query>
+      </named-query>
+      <named-query name="Appointment.authorizableAppointmentList">
+         <query>
+            SELECT a FROM Appointment a
+            WHERE 
+            ((:status = 'AUTHORIZED' AND (a.authorizationNumber IS NOT NULL AND a.authorizationNumber &lt;&gt; '')) OR (:status = 'UNAUTHORIZED' AND (a.authorizationNumber IS NULL OR a.authorizationNumber = '')) OR 
+            (:status = 'NOT_REQUIRED' AND a.authorizationNumber = 'NOT_REQUIRED') OR :status IS NULL) AND
+            (a.specialtyId = :specialtyId OR :specialtyId IS NULL) AND
+            (a.date &gt;= :start_date OR :start_date IS NULL) AND
+            (a.date &lt;= :end_date OR :end_date IS NULL) AND
+            (EXISTS (SELECT pac1 FROM PatientAuthorizationCondition pac1
+            WHERE pac1.specialtyId = a.specialtyId AND
+            pac1.insuranceId = a.patient.primaryInsuranceId AND
+            pac1.cptCode IS NULL) OR 
+            EXISTS (SELECT pac2 FROM PatientAuthorizationCondition pac2  
+            WHERE pac2.specialtyId IS NULL AND pac2.cptCode IS NOT NULL AND
+            pac2.insuranceId = a.patient.primaryInsuranceId AND
+            pac2.cptCode = a.officeProvider.cptCode))
+            ORDER BY a.patient.primaryInsuranceId, a.date
+         </query>
+      </named-query>
+   </entity>   
+   <entity class="OfficeProvider">
+      <named-query name="OfficeProvider.findSelfByNpi">
+         <query>
+            SELECT op FROM OfficeProvider op WHERE op.associatedProvider.npi = :npi AND op.role = 'self'
+         </query>
+      </named-query>
+      <named-query name="OfficeProvider.findByReferringNpi">
+         <query>
+            SELECT op FROM OfficeProvider op WHERE op.referringProvider.npi = :npi AND
+            EXISTS (SELECT mop FROM MyOfficeProvider mop WHERE mop.officeProvider = op AND mop.myOffice.code = :myOfficeCode)
+         </query>
+      </named-query>
+      <named-query name="OfficeProvider.similarOfficeProviders">
+         <query>
+            SELECT op FROM OfficeProvider op WHERE op.associatedProvider.npi = :npi AND (:id IS NULL OR op.id &lt;&gt; :id) AND op.role = 'self'
+         </query>
+      </named-query>
+   </entity>
+   <entity class="OfficeSchedule">
+      <named-query name="OfficeSchedule.findActive">
+         <query>SELECT o FROM OfficeSchedule o WHERE o.statusCode = 'A'
+            ORDER BY o.classifierCode, o.startDate</query>
+      </named-query>      
+   </entity>
+   <entity class="Patient">
+      <named-query name="Patient.similarPatients">
+         <query>
+            SELECT p FROM Patient p
+            WHERE (:id IS NULL or p.id != :id) and 
+            ((:id IS NULL AND (p.lastName = :lastName) and (p.firstName = :firstName)) or 
+            ((p.lastName = :lastName) and (p.birthDate = :birthDate)) or
+            ((p.birthDate = :birthDate) and (p.homePhone = :homePhone)))
+         </query>
+      </named-query>
+      <named-native-query name="Patient.merge">
+         <query>
+            EXEC MergePatient ?, ?, ?
+         </query>
+      </named-native-query>     
+   </entity>
+   <entity class="ProviderAppointmentCategory">
+      <named-query name="ProviderAppointmentCategory.findByProviderId">
+         <query>SELECT p FROM ProviderAppointmentCategory p 
+            WHERE p.officeProviderId = :providerId
+            ORDER BY p.visitCategory.code</query>
+      </named-query>
+   </entity>
+   <entity class="ProviderSchedule">
+      <named-query name="ProviderSchedule.findByDatesProvider">
+         <query>SELECT p FROM ProviderSchedule p WHERE p.officeProviderId = :providerId AND 
+            NOT((p.startDate &gt; :endDate AND p.startDate IS NOT NULL) OR 
+            (p.endDate &lt; :startDate AND p.endDate IS NOT NULL)) AND p.statusCode = 'A'
+            ORDER BY p.classifierCode, p.startDate</query>
+      </named-query>      
+   </entity>
+   <entity class="ReferringProvider">
+      <named-query name="ReferringProvider.similarReferringProviders">
+         <query>
+            SELECT r FROM ReferringProvider r
+            WHERE (((r.lastName = :lastName) AND (r.firstName = :firstName)) OR 
+            (r.npi = :npi))
+         </query>
+      </named-query>
+   </entity>
+   <entity class="Visit">   
+      <named-query name="Visit.authorizableVisitList">
+         <query>
+            SELECT v FROM Visit v
+            WHERE v.categoryId != 1 AND
+            ((:status = 'AUTHORIZED' AND v.authorizationNumber IS NOT NULL AND v.authorizationNumber != '') OR (:status = 'UNAUTHORIZED' AND (v.authorizationNumber IS NULL OR v.authorizationNumber = '')) OR 
+            (:status = 'NOT_REQUIRED' AND v.authorizationNumber = 'NOT_REQUIRED') OR :status IS NULL) AND
+            (v.specialtyId = :specialtyId OR :specialtyId IS NULL) AND
+            (v.date &gt;= :start_date OR :start_date IS NULL) AND
+            (v.date &lt;= :end_date OR :end_date IS NULL) AND
+            (EXISTS (SELECT pac1 FROM PatientAuthorizationCondition pac1
+            WHERE pac1.specialtyId = v.specialtyId AND
+            pac1.insuranceId = v.patient.primaryInsuranceId AND
+            pac1.cptCode IS NULL) OR
+            EXISTS (SELECT pac2 FROM PatientAuthorizationCondition pac2  
+            WHERE pac2.specialtyId IS NULL AND
+            pac2.insuranceId = v.patient.primaryInsuranceId AND
+            pac2.cptCode IS NOT NULL AND
+            pac2.cptCode = v.officeProvider.cptCode))
+            ORDER BY v.patient.primaryInsuranceId, v.date
+         </query>
+      </named-query>
+   </entity>   
+</entity-mappings>

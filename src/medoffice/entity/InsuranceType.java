@@ -13,18 +13,18 @@ public class InsuranceType implements Serializable {
    private static final long serialVersionUID = 1L;
    @Id
    @Basic(optional = false)
-   @Column(name = "id")
-   private Integer id;
+   @Column(name = "code")
+   private String code;
    @Basic(optional = false)
    @Column(name = "name")
    private String name;
 
-   public Integer getId() {
-      return id;
+   public String getCode() {
+      return code;
    }
 
-   public void setId(Integer id) {
-      this.id = id;
+   public void setCode(String code) {
+      this.code = code;
    }
 
    public String getName() {
@@ -38,7 +38,7 @@ public class InsuranceType implements Serializable {
    @Override
    public int hashCode() {
       int hash = 0;
-      hash += (id != null ? id.hashCode() : 0);
+      hash += (this.code != null ? this.code.hashCode() : 0);
       return hash;
    }
 
@@ -49,7 +49,7 @@ public class InsuranceType implements Serializable {
          return false;
       }
       InsuranceType other = (InsuranceType) object;
-      if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
+      if ((this.code == null && other.code != null) || (this.code != null && !this.code.equals(other.code))) {
          return false;
       }
       return true;
@@ -57,7 +57,6 @@ public class InsuranceType implements Serializable {
 
    @Override
    public String toString() {
-      return "com.medenterprise.medicalcare.domain.healthcare.InsuranceType[id=" + id + "]";
+      return "com.medenterprise.domain.entity.InsuranceType[code=" + code + "]";
    }
-
 }

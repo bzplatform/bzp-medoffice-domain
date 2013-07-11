@@ -15,8 +15,8 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-@Table(name = "patient_diagnostic_result")
-public class PatientDiagnosticResult implements Serializable {
+@Table(name = "referral_result")
+public class ReferralResult implements Serializable {
 
    private static final long serialVersionUID = 1L;
    @Id
@@ -65,8 +65,8 @@ public class PatientDiagnosticResult implements Serializable {
    private Date lastUpdated;
    @Column(name = "last_updated_user_id")
    private Integer lastUpdatedUserId;
-   @Column(name = "notes")
-   private String notes;   
+   @Column(name = "note")
+   private String note;   
 
    public Integer getId() {
       return id;
@@ -188,12 +188,12 @@ public class PatientDiagnosticResult implements Serializable {
       this.lastUpdatedUserId = lastUpdatedUserId;
    }
 
-   public String getNotes() {
-      return notes;
+   public String getNote() {
+      return note;
    }
 
-   public void setNotes(String notes) {
-      this.notes = notes;
+   public void setNote(String note) {
+      this.note = note;
    }
 
    @Override
@@ -206,10 +206,10 @@ public class PatientDiagnosticResult implements Serializable {
    @Override
    public boolean equals(Object object) {
       // TODO: Warning - this method won't work in the case the id fields are not set
-      if (!(object instanceof PatientDiagnosticResult)) {
+      if (!(object instanceof ReferralResult)) {
          return false;
       }
-      PatientDiagnosticResult other = (PatientDiagnosticResult) object;
+      ReferralResult other = (ReferralResult) object;
       if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
          return false;
       }

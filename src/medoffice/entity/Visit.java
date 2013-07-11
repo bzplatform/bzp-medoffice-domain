@@ -33,7 +33,7 @@ public class Visit implements Serializable {
    @ManyToMany
    @JoinTable(name = "visit_diagnosis",
    joinColumns =
-   @JoinColumn(name = "visit_id"),
+   @JoinColumn(name = "id"),
    inverseJoinColumns =
    @JoinColumn(name = "code", referencedColumnName = "code"))
    @OrderColumn(name="position")
@@ -47,8 +47,6 @@ public class Visit implements Serializable {
    @Column(name = "time")
    @Temporal(TemporalType.TIMESTAMP)
    private Date time;
-   @Column(name = "officeCode", nullable = false)
-   private int officeCode;
    @Column(name = "user_id")
    private Integer userId;
    @Column(name = "appointment_id")
@@ -62,10 +60,15 @@ public class Visit implements Serializable {
    private VisitCategory category;   
    @Column(name = "referring_provider_npi")
    private String referringProviderNpi;
-   @Column(name = "primary_isurance_id")
+   @Column(name = "primary_insurance_id")
    private Integer primaryInsuranceId;
    @Column(name = "secondary_insurance_id")
    private Integer secondaryInsuranceId;
+   @Column(name = "service_payment_type_id")
+   private Integer servicePaymentTypeId;
+   @JoinColumn(name = "service_payment_type_id", insertable = false, updatable = false)
+   @ManyToOne
+   private ServicePaymentType servicePaymentType;
    @Column(name = "duration")
    private Short duration;
    @Column(name = "created")
@@ -82,7 +85,7 @@ public class Visit implements Serializable {
    @OneToOne(cascade = CascadeType.REFRESH, fetch = FetchType.LAZY)
    private VisitProgressNote progressNote;
    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.REFRESH)
-   @JoinColumn(name = "visit_id", insertable = false, updatable = false)
+   @JoinColumn(name = "id", insertable = false, updatable = false)
    private VisitVitals vitals;
    @OneToMany(cascade = CascadeType.ALL, mappedBy = "visit")
    private List<PatientMedication> medicationList;
@@ -167,14 +170,6 @@ public class Visit implements Serializable {
       this.time = time;
    }
 
-   public int getOfficeCode() {
-      return officeCode;
-   }
-
-   public void setOfficeCode(int officeCode) {
-      this.officeCode = officeCode;
-   }
-
    public Integer getUserId() {
       return userId;
    }
@@ -237,6 +232,22 @@ public class Visit implements Serializable {
 
    public void setSecondaryInsuranceId(Integer secondaryInsuranceId) {
       this.secondaryInsuranceId = secondaryInsuranceId;
+   }
+
+   public Integer getServicePaymentTypeId() {
+      return servicePaymentTypeId;
+   }
+
+   public void setServicePaymentTypeId(Integer servicePaymentTypeId) {
+      this.servicePaymentTypeId = servicePaymentTypeId;
+   }
+
+   public ServicePaymentType getServicePaymentType() {
+      return servicePaymentType;
+   }
+
+   public void setServicePaymentType(ServicePaymentType servicePaymentType) {
+      this.servicePaymentType = servicePaymentType;
    }
 
    public Short getDuration() {

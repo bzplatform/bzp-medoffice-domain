@@ -21,11 +21,11 @@ public class ProviderSchedule implements Serializable {
    @Column(name = "id")
    private Integer id;
    @Basic(optional = false)
-   @Column(name = "provider_id")
-   private int providerId;
-   @JoinColumn(name = "provider_id", nullable = false, insertable = false, updatable = false)
+   @Column(name = "office_provider_id")
+   private int officeProviderId;
+   @JoinColumn(name = "office_provider_id", nullable = false, insertable = false, updatable = false)
    @ManyToOne
-   private Provider provider;
+   private OfficeProvider officeProvider;
    @Basic(optional = false)
    @Column(name = "office_code")
    private String officeCode;
@@ -80,7 +80,7 @@ public class ProviderSchedule implements Serializable {
    private Integer lastUpdatedUserId;
    @PrivateOwned
    @OneToMany(cascade = CascadeType.ALL, mappedBy = "providerSchedule")
-   @OrderBy("start_time")
+   @OrderBy("startTime")
    private List<ProviderScheduleTime> providerScheduleTimeList;
    private static Map<Character, String> classifierMap = null;
    private static Map<Character, String> periodMap = null;
@@ -93,20 +93,20 @@ public class ProviderSchedule implements Serializable {
       this.id = id;
    }
 
-   public int getProviderId() {
-      return providerId;
+   public int getOfficeProviderId() {
+      return officeProviderId;
    }
 
-   public void setProviderId(int providerId) {
-      this.providerId = providerId;
+   public void setOfficeProviderId(int officeProviderId) {
+      this.officeProviderId = officeProviderId;
    }
 
-   public Provider getProvider() {
-      return provider;
+   public OfficeProvider getOfficeProvider() {
+      return officeProvider;
    }
 
-   public void setProvider(Provider provider) {
-      this.provider = provider;
+   public void setOfficeProvider(OfficeProvider officeProvider) {
+      this.officeProvider = officeProvider;
    }
 
    public String getOfficeCode() {

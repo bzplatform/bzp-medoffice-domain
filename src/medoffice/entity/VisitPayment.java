@@ -20,7 +20,7 @@ public class VisitPayment implements Serializable {
    @Column(name = "id")
    @GeneratedValue(strategy = GenerationType.IDENTITY)
    private Integer id;
-   @JoinColumn(name = "id", nullable = false)
+   @JoinColumn(name = "visit_id", nullable = false)
    @ManyToOne
    private Visit visit;   
    @Basic(optional = false)

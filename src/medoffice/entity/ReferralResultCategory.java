@@ -8,8 +8,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "diagnostic_result_category")
-public class DiagnosticResultCategory implements Serializable {
+@Table(name = "referral_result_category")
+public class ReferralResultCategory implements Serializable {
    private static final long serialVersionUID = 1L;
    @Id
    @Basic(optional = false)
@@ -45,10 +45,10 @@ public class DiagnosticResultCategory implements Serializable {
    @Override
    public boolean equals(Object object) {
       // TODO: Warning - this method won't work in the case the id fields are not set
-      if (!(object instanceof DiagnosticResultCategory)) {
+      if (!(object instanceof ReferralResultCategory)) {
          return false;
       }
-      DiagnosticResultCategory other = (DiagnosticResultCategory) object;
+      ReferralResultCategory other = (ReferralResultCategory) object;
       if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
          return false;
       }

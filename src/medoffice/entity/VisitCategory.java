@@ -79,6 +79,6 @@ public class VisitCategory implements Serializable {
 
    @Override
    public String toString() {
-      return "com.medenterprise.medicalcare.domain.medenterprise.VisitCategory[code=" + code + "]";
+      return "medoffice.entity.VisitCategory[code=" + code + "]";
    }
 }

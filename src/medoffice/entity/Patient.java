@@ -79,8 +79,13 @@ public class Patient implements Serializable {
    private Language preferredLanguage;
    @PrivateOwned
    @OneToMany(cascade = CascadeType.ALL, mappedBy = "patient")
-   @OrderBy("account_index ASC")
+   @OrderBy("accountIndex ASC")
    private List<PatientInsurance> insuranceList;
+   @Column(name = "service_payment_type_id")
+   private Integer servicePaymentTypeId;
+   @JoinColumn(name = "service_payment_type_id", insertable = false, updatable = false)
+   @ManyToOne
+   private ServicePaymentType servicePaymentType;
    @ManyToMany
    @JoinTable(name = "patient_diagnosis",
    joinColumns =
@@ -112,6 +117,8 @@ public class Patient implements Serializable {
    @OneToMany(cascade = CascadeType.REFRESH, mappedBy = "patient")
    @OrderBy("created DESC")
    private List<PatientMedication> medicationList;
+   @Column(name = "condition_id")
+   private Integer conditionId;
    @JoinColumn(name = "patient_id", insertable = false, updatable = false)
    @OneToOne(cascade = CascadeType.REFRESH, fetch = FetchType.LAZY)
    private PatientStatus status;
@@ -208,10 +215,26 @@ public class Patient implements Serializable {
       this.primaryInsuranceId = primaryInsuranceId;
    }
 
-   public Integer getPcpId() {
+   public Integer getServicePaymentTypeId() {
+      return servicePaymentTypeId;
+   }
+
+   public void setServicePaymentTypeId(Integer servicePaymentTypeId) {
+      this.servicePaymentTypeId = servicePaymentTypeId;
+   }
+
+   public ServicePaymentType getServicePaymentType() {
+      return servicePaymentType;
+   }
+
+   public void setServicePaymentType(ServicePaymentType servicePaymentType) {
+      this.servicePaymentType = servicePaymentType;
+   }
+   
+   public String getPcpNpi() {
       for (PatientInsurance account : insuranceList) {
          if (account.getAccountIndex() == 1) {
-            return account.getPcpId();
+            return account.getPcpNpi();
          }
       }
       return null;
@@ -511,6 +534,14 @@ public class Patient implements Serializable {
 
    public void setStatus(PatientStatus status) {
       this.status = status;
+   }
+
+   public Integer getConditionId() {
+      return conditionId;
+   }
+
+   public void setConditionId(Integer conditionId) {
+      this.conditionId = conditionId;
    }
 
    public String getField(String field) {

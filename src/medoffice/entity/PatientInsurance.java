@@ -40,8 +40,8 @@ public class PatientInsurance implements Serializable {
    private Float deductible;
    @Column(name = "account_index", nullable = false)
    private short accountIndex;
-   @Column(name = "pcp_id")
-   private Integer pcpId;
+   @Column(name = "pcp_npi")
+   private String pcpNpi;
    @Column(name = "active", nullable = false)
    private boolean active;
    @Column(name = "notes")
@@ -151,12 +151,12 @@ public class PatientInsurance implements Serializable {
       this.accountIndex = accountIndex;
    }
 
-   public Integer getPcpId() {
-      return pcpId;
+   public String getPcpNpi() {
+      return pcpNpi;
    }
 
-   public void setPcpId(Integer pcpId) {
-      this.pcpId = pcpId;
+   public void setPcpNpi(String pcpNpi) {
+      this.pcpNpi = pcpNpi;
    }
 
    public boolean isActive() {
