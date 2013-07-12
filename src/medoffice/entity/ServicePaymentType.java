@@ -58,6 +58,10 @@ public class ServicePaymentType implements Serializable {
       this.secondaryInsuranceTypeCode = secondaryInsuranceTypeCode;
    }
 
+   public String getCode() {
+      return primaryInsuranceTypeCode + (secondaryInsuranceTypeCode != null ? "+" + secondaryInsuranceTypeCode : "");
+   }
+   
    @Override
    public int hashCode() {
       int hash = 0;

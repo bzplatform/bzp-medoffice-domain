@@ -37,6 +37,8 @@ public class Patient implements Serializable {
    private Provider personalDoctor;
    @Column(name = "primary_insurance_id")
    private Integer primaryInsuranceId;
+   @Column(name = "billing_account_id")
+   private Integer billingAccountId;   
    @Column(name = "address")
    private String address;
    @Column(name = "city")
@@ -89,7 +91,7 @@ public class Patient implements Serializable {
    @ManyToMany
    @JoinTable(name = "patient_diagnosis",
    joinColumns =
-   @JoinColumn(name = "patient_id"),
+   @JoinColumn(name = "id"),
    inverseJoinColumns =
    @JoinColumn(name = "code", referencedColumnName = "code"))
    private List<Diagnosis> diagnosisList;
@@ -119,7 +121,7 @@ public class Patient implements Serializable {
    private List<PatientMedication> medicationList;
    @Column(name = "condition_id")
    private Integer conditionId;
-   @JoinColumn(name = "patient_id", insertable = false, updatable = false)
+   @JoinColumn(name = "id", insertable = false, updatable = false)
    @OneToOne(cascade = CascadeType.REFRESH, fetch = FetchType.LAZY)
    private PatientStatus status;
 
@@ -238,6 +240,14 @@ public class Patient implements Serializable {
          }
       }
       return null;
+   }
+
+   public Integer getBillingAccountId() {
+      return billingAccountId;
+   }
+
+   public void setBillingAccountId(Integer billingAccountId) {
+      this.billingAccountId = billingAccountId;
    }
 
    public String getAddress() {

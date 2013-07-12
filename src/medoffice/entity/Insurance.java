@@ -25,9 +25,9 @@ public class Insurance implements Serializable {
    @Column(name = "short_name")
    private String shortName;
    @Basic(optional = false)
-   @Column(name = "type_id")
-   private Integer typeId;
-   @JoinColumn(name = "type_id", insertable = false, updatable = false)
+   @Column(name = "type_code")
+   private Integer typeCode;
+   @JoinColumn(name = "type_code", insertable = false, updatable = false)
    @ManyToOne
    private InsuranceType insuranceType;
    @Basic(optional = false)
@@ -76,12 +76,12 @@ public class Insurance implements Serializable {
       this.shortName = shortName;
    }
 
-   public Integer getTypeId() {
-      return typeId;
+   public Integer getTypeCode() {
+      return typeCode;
    }
 
-   public void setTypeId(Integer typeId) {
-      this.typeId = typeId;
+   public void setTypeCode(Integer typeCode) {
+      this.typeCode = typeCode;
    }
 
    public InsuranceType getInsuranceType() {

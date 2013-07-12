@@ -34,10 +34,8 @@ public class PatientRecordLog implements Serializable {
    private String event;
    @Column(name = "application")
    private String application;
-   @Column(name = "office_code")
-   private String officeCode;
-   @Column(name = "log_")
-   private String log;
+   @Column(name = "notes")
+   private String notes;
 
    public Integer getId() {
       return id;
@@ -103,20 +101,12 @@ public class PatientRecordLog implements Serializable {
       this.application = application;
    }
 
-   public String getOfficeCode() {
-      return officeCode;
+   public String getNotes() {
+      return notes;
    }
 
-   public void setOfficeCode(String officeCode) {
-      this.officeCode = officeCode;
-   }
-
-   public String getLog() {
-      return log;
-   }
-
-   public void setLog(String log) {
-      this.log = log;
+   public void setNotes(String notes) {
+      this.notes = notes;
    }
 
    @Override

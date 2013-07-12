@@ -21,13 +21,13 @@ public class PatientInsurance implements Serializable {
    private String groupId;
    @Column(name = "member_id")
    private String memberId;
-   @Column(name = "effectiveDate")
+   @Column(name = "effective_date")
    @Temporal(TemporalType.TIMESTAMP)
    private Date effectiveDate;
-   @Column(name = "expiredDate")
+   @Column(name = "expired")
    @Temporal(TemporalType.TIMESTAMP)
    private Date expirationDate;
-   @Column(name = "relationToGuarantor")
+   @Column(name = "relation_to_guarantor")
    private Character relationToGuarantor;
    @JoinColumn(name = "guarantor_id")
    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH})
@@ -109,6 +109,25 @@ public class PatientInsurance implements Serializable {
 
    public void setRelationToGuarantor(Character relationToGuarantor) {
       this.relationToGuarantor = relationToGuarantor;
+   }
+   
+   public String getRelationToGuarantorName() {
+      if (relationToGuarantor != null) {
+         switch (relationToGuarantor) {
+            case 'S':
+               return "SELF";
+            case 'P':
+               return "SPOUSE";
+            case 'C':
+               return "CHILD";
+            case 'D':
+               return "DEPENDENT";
+            default:
+               return "OTHER";
+         }
+      } else {
+         return "UNKNOWN";
+      }
    }
 
    public Guarantor getGuarantor() {
