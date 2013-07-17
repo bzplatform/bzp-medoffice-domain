@@ -15,9 +15,9 @@ public class Appointment implements Serializable {
    private Integer userId;
    @Column(name = "status")
    private String status;
-   @Column(name = "category_id")
-   private Integer categoryId;
-   @JoinColumn(name = "category_id", nullable = false, insertable = false, updatable = false)
+   @Column(name = "category_code")
+   private String categoryCode;
+   @JoinColumn(name = "category_code", nullable = false, insertable = false, updatable = false)
    @ManyToOne(cascade = CascadeType.REFRESH)
    private VisitCategory category;
    @Column(name = "specialty_id")
@@ -75,12 +75,12 @@ public class Appointment implements Serializable {
       this.status = status;
    }
 
-   public Integer getCategoryId() {
-      return categoryId;
+   public String getCategoryCode() {
+      return categoryCode;
    }
 
-   public void setCategoryId(Integer categoryId) {
-      this.categoryId = categoryId;
+   public void setCategoryCode(String categoryCode) {
+      this.categoryCode = categoryCode;
    }
 
    public VisitCategory getCategory() {

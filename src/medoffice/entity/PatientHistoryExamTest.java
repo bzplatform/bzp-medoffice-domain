@@ -8,7 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "[patient_history:exam_test]")
+@Table(name = "patient_history_exam_test")
 public class PatientHistoryExamTest implements Serializable {
    private static final long serialVersionUID = 1L;
    @Id

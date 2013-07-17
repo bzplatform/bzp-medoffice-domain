@@ -375,7 +375,7 @@ public class VisitServiceLevel implements Serializable {
 
    public void recalculate() {
       this.setCreated(new Date());
-      if (visit.getCategoryId() == 1) {
+      if (visit.getCategoryCode().equals("NEW")) {
          this.setPatientType("New");
       } else {
          this.setPatientType("Established");

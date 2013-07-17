@@ -2,6 +2,7 @@ package medoffice.entity;
 
 import java.io.Serializable;
 import javax.persistence.Basic;
+import javax.persistence.Cacheable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -9,6 +10,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "visit_category")
+@Cacheable(true)
 public class VisitCategory implements Serializable {
    private static final long serialVersionUID = 1L;
    @Id

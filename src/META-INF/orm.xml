@@ -114,7 +114,7 @@
       <named-query name="Visit.authorizableVisitList">
          <query>
             SELECT v FROM Visit v
-            WHERE v.categoryId != 1 AND
+            WHERE v.categoryCode != 'NEW' AND
             ((:status = 'AUTHORIZED' AND v.authorizationNumber IS NOT NULL AND v.authorizationNumber != '') OR (:status = 'UNAUTHORIZED' AND (v.authorizationNumber IS NULL OR v.authorizationNumber = '')) OR 
             (:status = 'NOT_REQUIRED' AND v.authorizationNumber = 'NOT_REQUIRED') OR :status IS NULL) AND
             (v.specialtyId = :specialtyId OR :specialtyId IS NULL) AND

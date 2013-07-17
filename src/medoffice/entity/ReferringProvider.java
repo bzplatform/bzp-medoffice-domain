@@ -158,7 +158,7 @@ public class ReferringProvider implements Serializable {
 
    @Override
    public String toString() {
-      return "com.medenterprise.medicalcare.domain.healthcare.ReferringProvider[code=" + npi + "]";
+      return "medoffice.entity.ReferringProvider[code=" + npi + "]";
    }
 
 }

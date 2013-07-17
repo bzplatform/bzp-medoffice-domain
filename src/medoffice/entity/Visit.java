@@ -1,7 +1,6 @@
 package medoffice.entity;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.*;
@@ -53,9 +52,9 @@ public class Visit implements Serializable {
    private Integer appointmentId;
    @Column(name = "status")
    private String status;
-   @Column(name = "category_id")
-   private Integer categoryId;
-   @JoinColumn(name = "category_id", updatable = false, insertable = false)
+   @Column(name = "category_code")
+   private String categoryCode;
+   @JoinColumn(name = "category_code", updatable = false, insertable = false)
    @ManyToOne
    private VisitCategory category;   
    @Column(name = "referring_provider_npi")
@@ -194,12 +193,12 @@ public class Visit implements Serializable {
       this.status = status;
    }
 
-   public Integer getCategoryId() {
-      return categoryId;
+   public String getCategoryCode() {
+      return categoryCode;
    }
 
-   public void setCategoryId(Integer categoryId) {
-      this.categoryId = categoryId;
+   public void setCategoryCode(String categoryCode) {
+      this.categoryCode = categoryCode;
    }
 
    public VisitCategory getCategory() {
