@@ -16,7 +16,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-@Table(name = "[visit:progress_note_addendum]")
+@Table(name = "visit_progress_note_addendum")
 public class VisitProgressNoteAddendum implements Serializable {
    private static final long serialVersionUID = 1L;
    @Id
@@ -97,6 +97,6 @@ public class VisitProgressNoteAddendum implements Serializable {
 
    @Override
    public String toString() {
-      return "com.medenterprise.domain.entity.VisitProgressNoteAddendum[id=" + id + "]";
+      return "medoffice.entity.VisitProgressNoteAddendum[id=" + id + "]";
    }  
 }

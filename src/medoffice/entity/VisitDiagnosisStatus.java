@@ -79,6 +79,6 @@ public class VisitDiagnosisStatus implements Serializable {
 
    @Override
    public String toString() {
-      return "com.medenterprise.domain.entity.VisitDiagnosisStatus[id=" + id + "]";
+      return "medoffice.entity.VisitDiagnosisStatus[id=" + id + "]";
    }
 }

@@ -101,6 +101,6 @@ public class Cvx implements Serializable {
 
    @Override
    public String toString() {
-      return "com.medenterprise.domain.entity.Cvx[code=" + code + "]";
+      return "medoffice.entity.Cvx[code=" + code + "]";
    }
 }

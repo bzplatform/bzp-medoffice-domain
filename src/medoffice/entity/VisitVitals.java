@@ -382,6 +382,6 @@ public class VisitVitals implements Serializable {
 
    @Override
    public String toString() {
-      return "com.medenterprise.domain.entity.VisitVitals[visitId=" + visitId + "]";
+      return "medoffice.entity.VisitVitals[visitId=" + visitId + "]";
    }
 }

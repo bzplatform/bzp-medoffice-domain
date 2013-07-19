@@ -222,6 +222,6 @@ public class VisitHpi implements Serializable {
 
    @Override
    public String toString() {
-      return "com.medenterprise.domain.entity.VisitHpi[visitId=" + visitId + "]";
+      return "medoffice.entity.VisitHpi[visitId=" + visitId + "]";
    }
 }

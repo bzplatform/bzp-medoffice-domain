@@ -53,6 +53,6 @@ public class RelationToGuarantor implements Serializable {
 
    @Override
    public String toString() {
-      return "com.medenterprise.domain.entity.RelationToGuarantor[code=" + code + "]";
+      return "medoffice.entity.RelationToGuarantor[code=" + code + "]";
    }  
 }

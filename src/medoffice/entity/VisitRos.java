@@ -278,6 +278,6 @@ public class VisitRos implements Serializable {
 
    @Override
    public String toString() {
-      return "com.medenterprise.domain.entity.VisitRos[visitId=" + visitId + "]";
+      return "medoffice.entity.VisitRos[visitId=" + visitId + "]";
    }
 }

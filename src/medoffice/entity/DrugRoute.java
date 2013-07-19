@@ -8,7 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "[drug:route]")
+@Table(name = "drug_route")
 public class DrugRoute implements Serializable {
    private static final long serialVersionUID = 1L;
    @Id
@@ -57,6 +57,6 @@ public class DrugRoute implements Serializable {
 
    @Override
    public String toString() {
-      return "com.medenterprise.domain.entity.DrugRoute[code=" + code + "]";
+      return "medoffice.entity.DrugRoute[code=" + code + "]";
    }
 }

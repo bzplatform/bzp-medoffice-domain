@@ -216,6 +216,6 @@ public class PatientInsurance implements Serializable {
 
    @Override
    public String toString() {
-      return "com.medenterprise.app.patientservice.persistence.PatientInsurance[id=" + id + "]";
+      return "medoffice.entity.PatientInsurance[id=" + id + "]";
    }
 }

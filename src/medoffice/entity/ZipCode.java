@@ -9,7 +9,7 @@ public class ZipCode implements Serializable {
    private static final long serialVersionUID = 1L;
    @Id
    @Basic(optional = false)
-   @Column(name = "zip_code")
+   @Column(name = "code")
    private String code;
    @Basic(optional = false)
    @Column(name = "city")
@@ -64,6 +64,6 @@ public class ZipCode implements Serializable {
 
    @Override
    public String toString() {
-      return "com.medenterprise.domain.entity.ZipCode[code=" + code + "]";
+      return "medoffice.entity.ZipCode[code=" + code + "]";
    }
 }

@@ -166,6 +166,6 @@ public class Pharmacy implements Serializable {
 
    @Override
    public String toString() {
-      return "com.medenterprise.domain.entity.Pharmacy[ncpdpProviderId=" + ncpdpProviderId + "]";
+      return "medoffice.entity.Pharmacy[ncpdpProviderId=" + ncpdpProviderId + "]";
    }
 }

@@ -57,6 +57,6 @@ public class ReferralResultCategory implements Serializable {
 
    @Override
    public String toString() {
-      return "com.medenterprise.medicalcare.domain.referral.ReferralResultCategory[id=" + id + "]";
+      return "medoffice.entity.ReferralResultCategory[id=" + id + "]";
    }
 }

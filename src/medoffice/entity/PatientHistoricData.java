@@ -30,7 +30,7 @@ public class PatientHistoricData implements Serializable {
    @JoinColumn(name = "patient_id", nullable = false, insertable = false, updatable = false)
    @ManyToOne
    private Patient patient;
-   @Column(name = "[table]")
+   @Column(name = "table_")
    private String table;
    @Column(name = "field")
    private String field;
@@ -128,6 +128,6 @@ public class PatientHistoricData implements Serializable {
 
    @Override
    public String toString() {
-      return "com.medenterprise.domain.entity.PatientHistoricData[id=" + id + "]";
+      return "medoffice.entity.PatientHistoricData[id=" + id + "]";
    }
 }

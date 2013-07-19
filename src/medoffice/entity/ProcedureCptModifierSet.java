@@ -88,6 +88,6 @@ public class ProcedureCptModifierSet implements Serializable {
 
    @Override
    public String toString() {
-      return "com.medenterprise.medicalcare.domain.healthcare.ProcedureCptModifierSet[cptCode=" + cptCode + "]";
+      return "medoffice.entity.ProcedureCptModifierSet[cptCode=" + cptCode + "]";
    }
 }

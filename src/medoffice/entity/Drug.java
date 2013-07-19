@@ -97,6 +97,6 @@ public class Drug implements Serializable {
 
    @Override
    public String toString() {
-      return "com.medenterprise.domain.entity.Drug[code=" + code + "]";
+      return "medoffice.entity.Drug[code=" + code + "]";
    }
 }

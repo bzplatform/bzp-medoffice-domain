@@ -8,13 +8,24 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "drug_dose_form")
-public class DrugDoseForm implements Serializable {
+@Table(name = "marital_status")
+public class MaritalStatus implements Serializable {
    private static final long serialVersionUID = 1L;
    @Id
    @Basic(optional = false)
+   @Column(name = "code")
+   private Character code;
+   @Basic(optional = false)
    @Column(name = "name")
    private String name;
+
+   public Character getCode() {
+      return code;
+   }
+
+   public void setCode(Character code) {
+      this.code = code;
+   }
 
    public String getName() {
       return name;
@@ -27,18 +38,18 @@ public class DrugDoseForm implements Serializable {
    @Override
    public int hashCode() {
       int hash = 0;
-      hash += (name != null ? name.hashCode() : 0);
+      hash += (code != null ? code.hashCode() : 0);
       return hash;
    }
 
    @Override
    public boolean equals(Object object) {
       // TODO: Warning - this method won't work in the case the id fields are not set
-      if (!(object instanceof DrugDoseForm)) {
+      if (!(object instanceof MaritalStatus)) {
          return false;
       }
-      DrugDoseForm other = (DrugDoseForm) object;
-      if ((this.name == null && other.name != null) || (this.name != null && !this.name.equals(other.name))) {
+      MaritalStatus other = (MaritalStatus) object;
+      if ((this.code == null && other.code != null) || (this.code != null && !this.code.equals(other.code))) {
          return false;
       }
       return true;
@@ -46,6 +57,6 @@ public class DrugDoseForm implements Serializable {
 
    @Override
    public String toString() {
-      return "medoffice.entity.DrugDoseForm[name=" + name + "]";
-   }
+      return "medoffice.entity.MaritalStatus[code=" + code + "]";
+   }  
 }

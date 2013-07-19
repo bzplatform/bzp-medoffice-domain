@@ -60,6 +60,6 @@ public class ReferralCancelReason implements Serializable {
 
    @Override
    public String toString() {
-      return "com.medenterprise.medicalcare.domain.referral.ReferralTypicalCancelReason[id=" + id + "]";
+      return "medoffice.entity.ReferralTypicalCancelReason[id=" + id + "]";
    }  
 }

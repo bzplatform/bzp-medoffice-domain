@@ -57,6 +57,6 @@ public class PatientCondition implements Serializable {
 
    @Override
    public String toString() {
-      return "com.medenterprise.domain.entity.PatientCondition[id=" + id + "]";
+      return "medoffice.entity.PatientCondition[id=" + id + "]";
    }  
 }

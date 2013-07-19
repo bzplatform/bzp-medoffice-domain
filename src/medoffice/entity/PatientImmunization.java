@@ -231,6 +231,6 @@ public class PatientImmunization implements Serializable {
 
    @Override
    public String toString() {
-      return "com.medenterprise.domain.entity.PatientImmunization[id=" + id + "]";
+      return "medoffice.entity.PatientImmunization[id=" + id + "]";
    }
 }

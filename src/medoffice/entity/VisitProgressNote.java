@@ -358,6 +358,6 @@ public class VisitProgressNote implements Serializable {
 
    @Override
    public String toString() {
-      return "com.medenterprise.domain.entity.VisitProgressNote[visitId=" + visitId + "]";
+      return "medoffice.entity.VisitProgressNote[visitId=" + visitId + "]";
    }
 }

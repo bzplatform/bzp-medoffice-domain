@@ -10,7 +10,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "[patient:authorization_procedure]")
+@Table(name = "patient_authorization_procedure")
 public class PatientAuthorizationProcedure implements Serializable {
    private static final long serialVersionUID = 1L;
    @Id
@@ -59,6 +59,6 @@ public class PatientAuthorizationProcedure implements Serializable {
 
    @Override
    public String toString() {
-      return "com.medenterprise.domain.entity.PatientAuthorizationProcedure[code=" + code + "]";
+      return "medoffice.entity.PatientAuthorizationProcedure[code=" + code + "]";
    }  
 }

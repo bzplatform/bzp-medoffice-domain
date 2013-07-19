@@ -54,6 +54,6 @@ public class Diagnosis implements Serializable {
 
    @Override
    public String toString() {
-      return "com.medenterprise.domain.entity.Diagnosis[code=" + code + "]";
+      return "medoffice.entity.Diagnosis[code=" + code + "]";
    }
 }

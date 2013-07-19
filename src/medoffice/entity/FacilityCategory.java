@@ -46,6 +46,6 @@ public class FacilityCategory implements Serializable {
 
    @Override
    public String toString() {
-      return "com.medenterprise.medicalcare.domain.referral.FacilityCategory[code=" + name + "]";
-   }  
+      return "medoffice.entity.FacilityCategory[code=" + name + "]";
+   }
 }

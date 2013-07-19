@@ -84,7 +84,7 @@ public class PatientMedication implements Serializable {
    @Column(name = "status_date")
    @Temporal(TemporalType.DATE)
    private Date statusDate;
-   @Column(name = "[status]")
+   @Column(name = "status")
    private String status;
    @Basic(optional = false)
    @Column(name = "active")
@@ -396,6 +396,6 @@ public class PatientMedication implements Serializable {
 
    @Override
    public String toString() {
-      return "com.medenterprise.domain.entity.PatientMedication[id=" + id + "]";
+      return "medoffice.entity.PatientMedication[id=" + id + "]";
    }  
 }

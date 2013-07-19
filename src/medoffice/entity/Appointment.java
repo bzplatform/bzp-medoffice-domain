@@ -209,6 +209,6 @@ public class Appointment implements Serializable {
 
    @Override
    public String toString() {
-      return "com.medenterprise.app.patientservice.persistence.Appointment[id=" + id + "]";
+      return "medoffice.entity.Appointment[id=" + id + "]";
    }
 }

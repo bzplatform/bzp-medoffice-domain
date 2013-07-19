@@ -82,6 +82,6 @@ public class VisitTemplateState implements Serializable {
 
    @Override
    public String toString() {
-      return "com.medenterprise.domain.entity.VisitTemplateState[visitId=" + visitId + "]";
+      return "medoffice.entity.VisitTemplateState[visitId=" + visitId + "]";
    }
 }

@@ -489,6 +489,6 @@ public class ProviderSchedule implements Serializable {
 
    @Override
    public String toString() {
-      return "com.medenterprise.domain.entity.ProviderSchedule[id=" + id + "]";
+      return "medoffice.entity.ProviderSchedule[id=" + id + "]";
    }
 }

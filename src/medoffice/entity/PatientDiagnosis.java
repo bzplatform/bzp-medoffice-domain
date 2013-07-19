@@ -145,6 +145,6 @@ public class PatientDiagnosis implements Serializable {
 
    @Override
    public String toString() {
-      return "com.medenterprise.domain.entity.PatientDiagnosis[id=" + id + "]";
+      return "medoffice.entity.PatientDiagnosis[id=" + id + "]";
    }
 }

@@ -132,6 +132,6 @@ public class VisitProcedure implements Serializable {
 
    @Override
    public String toString() {
-      return "com.medenterprise.app.patientservice.persistence.VisitProcedure[id=" + id + "]";
+      return "medoffice.entity.VisitProcedure[id=" + id + "]";
    }
 }

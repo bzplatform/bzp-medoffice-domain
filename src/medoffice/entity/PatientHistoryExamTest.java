@@ -57,6 +57,6 @@ public class PatientHistoryExamTest implements Serializable {
 
    @Override
    public String toString() {
-      return "com.medenterprise.domain.entity.PatientHistoryExamTest[id=" + id + "]";
+      return "medoffice.entity.PatientHistoryExamTest[id=" + id + "]";
    }
 }

@@ -683,6 +683,6 @@ public class VisitServiceLevel implements Serializable {
 
    @Override
    public String toString() {
-      return "com.medenterprise.domain.entity.VisitServiceLevel[visitId=" + visitId + "]";
+      return "medoffice.entity.VisitServiceLevel[visitId=" + visitId + "]";
    }
 }

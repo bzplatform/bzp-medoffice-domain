@@ -260,6 +260,6 @@ public class VisitMdm implements Serializable {
    
    @Override
    public String toString() {
-      return "com.medenterprise.domain.entity.VisitMdm[visitId=" + visitId + "]";
+      return "medoffice.entity.VisitMdm[visitId=" + visitId + "]";
    }
 }

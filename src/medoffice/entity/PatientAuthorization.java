@@ -3,6 +3,7 @@ package medoffice.entity;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -28,6 +29,9 @@ public class PatientAuthorization implements Serializable {
    @Basic(optional = false)
    @Column(name = "patient_id")
    private int patientId;
+   @JoinColumn(name = "patient_id", nullable = false, insertable = false, updatable = false)
+   @ManyToOne(cascade = CascadeType.REFRESH)   
+   private Patient patient;
    @Basic(optional = false)
    @Column(name = "number")
    private String number;
@@ -96,6 +100,14 @@ public class PatientAuthorization implements Serializable {
 
    public void setPatientId(int patientId) {
       this.patientId = patientId;
+   }
+
+   public Patient getPatient() {
+      return patient;
+   }
+
+   public void setPatient(Patient patient) {
+      this.patient = patient;
    }
 
    public String getNumber() {
@@ -240,6 +252,6 @@ public class PatientAuthorization implements Serializable {
 
    @Override
    public String toString() {
-      return "com.medenterprise.domain.entity.PatientAuthorization[id=" + id + "]";
+      return "medoffice.entity.PatientAuthorization[id=" + id + "]";
    }
 }

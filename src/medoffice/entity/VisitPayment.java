@@ -116,6 +116,6 @@ public class VisitPayment implements Serializable {
 
    @Override
    public String toString() {
-      return "com.medenterprise.patientservice.entity.VisitPayment[id=" + id + "]";
+      return "medoffice.entity.VisitPayment[id=" + id + "]";
    }
 }

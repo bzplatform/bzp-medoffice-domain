@@ -8,7 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "[drug:frequency]")
+@Table(name = "drug_frequency")
 public class DrugFrequency implements Serializable {
    private static final long serialVersionUID = 1L;
    @Id
@@ -57,6 +57,6 @@ public class DrugFrequency implements Serializable {
 
    @Override
    public String toString() {
-      return "com.medenterprise.domain.entity.DrugFrequency[code=" + code + "]";
+      return "medoffice.entity.DrugFrequency[code=" + code + "]";
    }
 }

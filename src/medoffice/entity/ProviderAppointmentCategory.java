@@ -74,6 +74,6 @@ public class ProviderAppointmentCategory implements Serializable {
 
    @Override
    public String toString() {
-      return "com.medenterprise.domain.entity.ProviderAppointmentCategory[id=" + id + "]";
+      return "medoffice.entity.ProviderAppointmentCategory[id=" + id + "]";
    }  
 }

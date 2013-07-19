@@ -262,6 +262,6 @@ import javax.persistence.*;
 
   @Override
   public String toString() {
-    return "com.medenterprise.domain.entity.Guarantor[id=" + id + "]";
+    return "medoffice.entity.Guarantor[id=" + id + "]";
   }
 }

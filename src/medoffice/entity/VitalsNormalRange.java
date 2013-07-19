@@ -167,6 +167,6 @@ public class VitalsNormalRange implements Serializable {
 
    @Override
    public String toString() {
-      return "com.medenterprise.domain.entity.VitalsNormalRange[id=" + id + "]";
+      return "medoffice.entity.VitalsNormalRange[id=" + id + "]";
    }
 }

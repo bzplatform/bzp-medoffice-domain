@@ -87,6 +87,6 @@ public class VisitCc implements Serializable {
 
    @Override
    public String toString() {
-      return "com.medenterprise.domain.entity.VisitCc[visitId=" + visitId + "]";
+      return "medoffice.entity.VisitCc[visitId=" + visitId + "]";
    }
 }

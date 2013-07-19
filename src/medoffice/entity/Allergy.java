@@ -63,6 +63,6 @@ public class Allergy implements Serializable {
 
    @Override
    public String toString() {
-      return "com.medenterprise.domain.entity.Allergy[id=" + id + "]";
+      return "medoffice.entity.Allergy[id=" + id + "]";
    }
 }

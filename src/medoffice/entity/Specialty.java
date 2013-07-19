@@ -67,6 +67,6 @@ public class Specialty implements Serializable {
 
    @Override
    public String toString() {
-      return "com.medenterprise.medicalcare.domain.healthcare.Specialty[id=" + id + "]";
+      return "medoffice.entity.Specialty[id=" + id + "]";
    }
 }

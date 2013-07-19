@@ -70,6 +70,6 @@ public class PatientHistoryProblem implements Serializable {
 
    @Override
    public String toString() {
-      return "com.medenterprise.domain.entity.PatientHistoryProblem[id=" + id + "]";
+      return "medoffice.entity.PatientHistoryProblem[id=" + id + "]";
    }
 }

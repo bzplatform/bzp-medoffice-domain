@@ -1,7 +1,6 @@
 package medoffice.entity;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -24,7 +23,7 @@ public class Patient implements Serializable {
    @Column(name = "first_name", nullable = false)
    private String firstName;
    @Column(name = "middle_initial")
-   private Character middle_initial;
+   private Character middleInitial;
    @Column(name = "sex")
    private Character sex;
    @Column(name = "birth_date")
@@ -121,9 +120,31 @@ public class Patient implements Serializable {
    private List<PatientMedication> medicationList;
    @Column(name = "condition_id")
    private Integer conditionId;
+   @Column(name = "condition_date")
+   @Temporal(TemporalType.TIMESTAMP)
+   private Date conditionDate;
    @JoinColumn(name = "id", insertable = false, updatable = false)
    @OneToOne(cascade = CascadeType.REFRESH, fetch = FetchType.LAZY)
    private PatientStatus status;
+   @Column(name = "marital_status_code")
+   private Character maritalStatusCode;
+   @JoinColumn(name = "marital_status_code", insertable = false, updatable = false)
+   @ManyToOne(fetch = FetchType.LAZY)
+   private MaritalStatus maritalStatus;
+   @Column(name = "work_phone")
+   private String workPhone;
+   @Column(name = "work_phone_ext")
+   private String workPhoneExt;
+   @Column(name = "work_address")
+   private String workAddress;
+   @Column(name = "work_city")
+   private String workCity;
+   @Column(name = "work_state")
+   private String workState;
+   @Column(name = "work_zip_code")
+   private String workZipCode;
+   @Column(name = "employer")
+   private String employer;
 
    public Integer getId() {
       return id;
@@ -149,12 +170,12 @@ public class Patient implements Serializable {
       this.firstName = firstName;
    }
 
-   public Character getMiddle_initial() {
-      return middle_initial;
+   public Character getMiddleInitial() {
+      return middleInitial;
    }
 
-   public void setMiddle_initial(Character middle_initial) {
-      this.middle_initial = middle_initial;
+   public void setMiddleInitial(Character middleInitial) {
+      this.middleInitial = middleInitial;
    }
 
    public String getName() {
@@ -554,6 +575,86 @@ public class Patient implements Serializable {
       this.conditionId = conditionId;
    }
 
+   public Date getConditionDate() {
+      return conditionDate;
+   }
+
+   public void setConditionDate(Date conditionDate) {
+      this.conditionDate = conditionDate;
+   }
+
+   public Character getMaritalStatusCode() {
+      return maritalStatusCode;
+   }
+
+   public void setMaritalStatusCode(Character maritalStatusCode) {
+      this.maritalStatusCode = maritalStatusCode;
+   }
+
+   public MaritalStatus getMaritalStatus() {
+      return maritalStatus;
+   }
+
+   public void setMaritalStatus(MaritalStatus maritalStatus) {
+      this.maritalStatus = maritalStatus;
+   }
+
+   public String getWorkPhone() {
+      return workPhone;
+   }
+
+   public void setWorkPhone(String workPhone) {
+      this.workPhone = workPhone;
+   }
+
+   public String getWorkPhoneExt() {
+      return workPhoneExt;
+   }
+
+   public void setWorkPhoneExt(String workPhoneExt) {
+      this.workPhoneExt = workPhoneExt;
+   }
+
+   public String getWorkAddress() {
+      return workAddress;
+   }
+
+   public void setWorkAddress(String workAddress) {
+      this.workAddress = workAddress;
+   }
+
+   public String getWorkCity() {
+      return workCity;
+   }
+
+   public void setWorkCity(String workCity) {
+      this.workCity = workCity;
+   }
+
+   public String getWorkState() {
+      return workState;
+   }
+
+   public void setWorkState(String workState) {
+      this.workState = workState;
+   }
+
+   public String getWorkZipCode() {
+      return workZipCode;
+   }
+
+   public void setWorkZipCode(String workZipCode) {
+      this.workZipCode = workZipCode;
+   }
+
+   public String getEmployer() {
+      return employer;
+   }
+
+   public void setEmployer(String employer) {
+      this.employer = employer;
+   }
+   
    public String getField(String field) {
       try {
          Object valObj = Patient.class.getDeclaredField(field).get(this);
@@ -578,6 +679,6 @@ public class Patient implements Serializable {
 
    @Override
    public String toString() {
-      return "com.medenterprise.domain.entity.Patient[id=" + id + "]";
+      return "medoffice.entity.Patient[id=" + id + "]";
    }
 }

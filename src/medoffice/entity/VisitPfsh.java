@@ -133,6 +133,6 @@ public class VisitPfsh implements Serializable {
 
    @Override
    public String toString() {
-      return "com.medenterprise.domain.entity.VisitPfsh[visitId=" + visitId + "]";
+      return "medoffice.entity.VisitPfsh[visitId=" + visitId + "]";
    }
 }

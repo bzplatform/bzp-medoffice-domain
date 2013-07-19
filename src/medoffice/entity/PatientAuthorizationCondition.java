@@ -89,6 +89,6 @@ public class PatientAuthorizationCondition implements Serializable {
 
    @Override
    public String toString() {
-      return "com.medenterprise.domain.entity.PatientAuthorizationCondition[id=" + id + "]";
+      return "medoffice.entity.PatientAuthorizationCondition[id=" + id + "]";
    }
 }

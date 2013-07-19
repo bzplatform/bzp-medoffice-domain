@@ -69,6 +69,6 @@ public class Procedure implements Serializable {
 
    @Override
    public String toString() {
-      return "com.medenterprise.domain.entity.Procedure[code=" + code + "]";
+      return "medoffice.entity.Procedure[code=" + code + "]";
    }
 }

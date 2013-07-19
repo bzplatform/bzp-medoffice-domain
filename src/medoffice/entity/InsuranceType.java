@@ -57,6 +57,6 @@ public class InsuranceType implements Serializable {
 
    @Override
    public String toString() {
-      return "com.medenterprise.domain.entity.InsuranceType[code=" + code + "]";
+      return "medoffice.entity.InsuranceType[code=" + code + "]";
    }
 }

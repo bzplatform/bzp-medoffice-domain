@@ -1,6 +1,5 @@
 package medoffice.entity;
 
-import medoffice.entity.MyOffice;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
@@ -179,6 +178,6 @@ public class OfficeProvider implements Serializable {
 
    @Override
    public String toString() {
-      return "com.medenterprise.medicalcare.domain.medenterprise.OfficeProvider[id=" + id + "]";
+      return "medoffice.entity.OfficeProvider[id=" + id + "]";
    }
 }

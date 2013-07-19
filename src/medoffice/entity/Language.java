@@ -53,6 +53,6 @@ public class Language implements Serializable {
 
    @Override
    public String toString() {
-      return "com.medenterprise.domain.entity.Language[code=" + code + "]";
+      return "medoffice.entity.Language[code=" + code + "]";
    }  
 }

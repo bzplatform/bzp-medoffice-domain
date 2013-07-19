@@ -96,6 +96,10 @@ public class Provider implements Serializable {
       this.middleInitial = middleInitial;
    }
 
+   public String getName() {
+      return lastName + ", " + firstName;
+   }
+   
    public boolean getActive() {
       return active;
    }
@@ -302,6 +306,6 @@ public class Provider implements Serializable {
 
    @Override
    public String toString() {
-      return "com.medenterprise.medicalcare.domain.medenterprise.Provider[code=" + npi + "]";
+      return "medoffice.entity.Provider[code=" + npi + "]";
    }
 }

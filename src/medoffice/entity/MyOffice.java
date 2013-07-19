@@ -136,6 +136,6 @@ public class MyOffice implements Serializable {
 
    @Override
    public String toString() {
-      return "com.medenterprise.medicalcare.domain.medenterprise.MyOffice[code=" + code + "]";
+      return "medoffice.entity.MyOffice[code=" + code + "]";
    }
 }

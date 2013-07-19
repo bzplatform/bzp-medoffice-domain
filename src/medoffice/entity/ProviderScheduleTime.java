@@ -80,7 +80,7 @@ public class ProviderScheduleTime implements Serializable {
 
    @Override
    public String toString() {
-      return "com.medenterprise.domain.entity.ProviderScheduleTime[id=" + id + "]";
+      return "medoffice.entity.ProviderScheduleTime[id=" + id + "]";
    }
    
    static Date normalizeTime(Date time) {

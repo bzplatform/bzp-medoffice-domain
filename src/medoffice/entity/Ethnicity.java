@@ -57,6 +57,6 @@ public class Ethnicity implements Serializable {
 
    @Override
    public String toString() {
-      return "com.medenterprise.domain.entity.Ethnicity[id=" + id + "]";
+      return "medoffice.entity.Ethnicity[id=" + id + "]";
    }
 }

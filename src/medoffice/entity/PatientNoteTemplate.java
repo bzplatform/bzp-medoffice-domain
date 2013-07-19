@@ -84,6 +84,6 @@ public class PatientNoteTemplate implements Serializable {
 
    @Override
    public String toString() {
-      return "com.medenterprise.domain.entity.PatientNoteTemplate[id=" + id + "]";
+      return "medoffice.entity.PatientNoteTemplate[id=" + id + "]";
    }
 }

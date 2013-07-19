@@ -148,6 +148,6 @@ public class PatientStatus implements Serializable {
 
    @Override
    public String toString() {
-      return "com.medenterprise.domain.entity.PatientStatus[patientId=" + patientId + "]";
+      return "medoffice.entity.PatientStatus[patientId=" + patientId + "]";
    }
 }

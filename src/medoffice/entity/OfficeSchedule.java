@@ -357,6 +357,6 @@ public class OfficeSchedule implements Serializable {
 
    @Override
    public String toString() {
-      return "com.medenterprise.domain.entity.OfficeSchedule[id=" + id + "]";
+      return "medoffice.entity.OfficeSchedule[id=" + id + "]";
    }
 }

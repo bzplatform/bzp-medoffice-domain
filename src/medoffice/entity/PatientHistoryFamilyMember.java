@@ -57,6 +57,6 @@ public class PatientHistoryFamilyMember implements Serializable {
 
    @Override
    public String toString() {
-      return "com.medenterprise.domain.entity.PatientHistoryFamilyMember[id=" + id + "]";
+      return "medoffice.entity.PatientHistoryFamilyMember[id=" + id + "]";
    }
 }

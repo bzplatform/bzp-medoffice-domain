@@ -69,6 +69,6 @@ public class ProcedureModifier implements Serializable {
 
    @Override
    public String toString() {
-      return "com.medenterprise.medicalcare.domain.healthcare.ProcedureModifier[code=" + code + "]";
+      return "medoffice.entity.ProcedureModifier[code=" + code + "]";
    }
 }

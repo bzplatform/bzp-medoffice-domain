@@ -57,6 +57,6 @@ public class PaymentMethod implements Serializable {
 
    @Override
    public String toString() {
-      return "com.medenterprise.patientservice.entity.PaymentMethod[id=" + id + "]";
+      return "medoffice.entity.PaymentMethod[id=" + id + "]";
    }
 }

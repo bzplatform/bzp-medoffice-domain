@@ -235,6 +235,6 @@ public class Referral implements Serializable {
 
    @Override
    public String toString() {
-      return "com.medenterprise.medicalcare.domain.referral.Referral[id=" + id + "]";
+      return "medoffice.entity.Referral[id=" + id + "]";
    }  
 }

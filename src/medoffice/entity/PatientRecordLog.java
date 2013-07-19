@@ -131,6 +131,6 @@ public class PatientRecordLog implements Serializable {
 
    @Override
    public String toString() {
-      return "com.medenterprise.medicalcare.domain.medenterprise.PatientRecordLog[id=" + id + "]";
+      return "medoffice.entity.PatientRecordLog[id=" + id + "]";
    }
 }

@@ -59,6 +59,6 @@ public class Race implements Serializable {
 
    @Override
    public String toString() {
-      return "com.medenterprise.domain.entity.Race[id=" + id + "]";
+      return "medoffice.entity.Race[id=" + id + "]";
    }
 }

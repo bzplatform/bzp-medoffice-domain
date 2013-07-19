@@ -46,6 +46,6 @@ public class AllergyReaction implements Serializable {
 
    @Override
    public String toString() {
-      return "com.medenterprise.domain.entity.AllergyReaction[description=" + description + "]";
+      return "medoffice.entity.AllergyReaction[description=" + description + "]";
    }
 }

@@ -71,7 +71,11 @@ public class ReferringProvider implements Serializable {
    public void setMiddleInitial(Character middleInitial) {
       this.middleInitial = middleInitial;
    }
-
+   
+   public String getName() {
+      return lastName + ", " + firstName;
+   }
+   
    public String getSuffix() {
       return suffix;
    }
