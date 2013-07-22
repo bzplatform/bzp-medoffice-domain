@@ -20,14 +20,12 @@ public class Referral implements Serializable {
    @JoinColumn(name = "patient_id", insertable = false, updatable = false)
    @ManyToOne
    private Patient patient;
-   @JoinColumn(name = "provider_id")
+   @JoinColumn(name = "provider_npi")
    @ManyToOne(optional = false)
    private Provider provider;
    @JoinColumn(name = "office_provider_id")
    @ManyToOne
    private OfficeProvider officeProvider;  
-   @Column(name = "my_office_code")
-   private String myOfficeCode;
    @JoinColumn(name = "facility_id")
    @ManyToOne(optional = false)
    private ReferralFacility facility;
@@ -107,14 +105,6 @@ public class Referral implements Serializable {
 
    public void setOfficeProvider(OfficeProvider officeProvider) {
       this.officeProvider = officeProvider;
-   }
-
-   public String getMyOfficeCode() {
-      return myOfficeCode;
-   }
-
-   public void setMyOfficeCode(String myOfficeCode) {
-      this.myOfficeCode = myOfficeCode;
    }
 
    public ReferralFacility getFacility() {

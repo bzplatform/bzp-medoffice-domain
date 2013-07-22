@@ -27,8 +27,9 @@ public class ReferralResult implements Serializable {
    @Basic(optional = false)
    @Column(name = "patient_id")
    private int patientId;
-   @Column(name = "my_office_code")
-   private String myOfficeCode;
+   @JoinColumn(name = "patient_id", insertable = false, updatable = false)
+   @ManyToOne
+   private Patient patient;   
    @JoinColumn(name = "facility_id")
    @ManyToOne
    private ReferralFacility facility;
@@ -41,7 +42,7 @@ public class ReferralResult implements Serializable {
    @JoinColumn(name = "referral_id")
    @ManyToOne
    private Referral referral;
-   @JoinColumn(name = "provider_id")
+   @JoinColumn(name = "provider_npi")
    @ManyToOne
    private Provider provider;
    @JoinColumn(name = "office_provider_id")
@@ -65,8 +66,8 @@ public class ReferralResult implements Serializable {
    private Date lastUpdated;
    @Column(name = "last_updated_user_id")
    private Integer lastUpdatedUserId;
-   @Column(name = "note")
-   private String note;   
+   @Column(name = "notes")
+   private String notes;   
 
    public Integer getId() {
       return id;
@@ -84,12 +85,12 @@ public class ReferralResult implements Serializable {
       this.patientId = patientId;
    }
 
-   public String getMyOfficeCode() {
-      return myOfficeCode;
+   public Patient getPatient() {
+      return patient;
    }
 
-   public void setMyOfficeCode(String myOfficeCode) {
-      this.myOfficeCode = myOfficeCode;
+   public void setPatient(Patient patient) {
+      this.patient = patient;
    }
 
    public ReferralFacility getFacility() {
@@ -188,12 +189,12 @@ public class ReferralResult implements Serializable {
       this.lastUpdatedUserId = lastUpdatedUserId;
    }
 
-   public String getNote() {
-      return note;
+   public String getNotes() {
+      return notes;
    }
 
-   public void setNote(String note) {
-      this.note = note;
+   public void setNotes(String notes) {
+      this.notes = notes;
    }
 
    @Override

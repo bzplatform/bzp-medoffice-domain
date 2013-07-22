@@ -45,6 +45,11 @@
             ORDER BY a.patient.primaryInsuranceId, a.date
          </query>
       </named-query>
+      <named-native-query name="Appointment.moveToVisit">
+         <query>
+            EXECUTE MoveApptToVisit ?,?
+         </query>
+      </named-native-query>
    </entity>   
    <entity class="OfficeProvider">
       <named-query name="OfficeProvider.findSelfByNpi">

@@ -9,6 +9,7 @@ import org.eclipse.persistence.annotations.PrivateOwned;
 @Entity
 @Table(name = "visit")
 public class Visit implements Serializable {
+
    @Id
    @GeneratedValue(strategy = GenerationType.IDENTITY)
    @Column(name = "id", nullable = false)
@@ -27,18 +28,18 @@ public class Visit implements Serializable {
    @PrivateOwned
    @OneToMany(cascade = CascadeType.ALL, mappedBy = "visit")
 //   @OrderBy("id ASC")
-   @OrderColumn(name="position")
+   @OrderColumn(name = "position")
    private List<VisitProcedure> procedureList;
    @ManyToMany
    @JoinTable(name = "visit_diagnosis",
-   joinColumns =
-   @JoinColumn(name = "id"),
-   inverseJoinColumns =
-   @JoinColumn(name = "code", referencedColumnName = "code"))
-   @OrderColumn(name="position")
+           joinColumns =
+           @JoinColumn(name = "visit_id"),
+           inverseJoinColumns =
+           @JoinColumn(name = "code", referencedColumnName = "code"))
+   @OrderColumn(name = "position")
    private List<Diagnosis> diagnosisList;
    @OneToMany(cascade = CascadeType.ALL, mappedBy = "visit")
-   @OrderColumn(name="position")
+   @OrderColumn(name = "position")
    private List<VisitDiagnosis> visitDiagnosisList;
    @Column(name = "date")
    @Temporal(TemporalType.TIMESTAMP)
@@ -56,7 +57,7 @@ public class Visit implements Serializable {
    private String categoryCode;
    @JoinColumn(name = "category_code", updatable = false, insertable = false)
    @ManyToOne
-   private VisitCategory category;   
+   private VisitCategory category;
    @Column(name = "referring_provider_npi")
    private String referringProviderNpi;
    @Column(name = "primary_insurance_id")
@@ -72,7 +73,7 @@ public class Visit implements Serializable {
    private Short duration;
    @Column(name = "created")
    @Temporal(TemporalType.TIMESTAMP)
-   private Date created;   
+   private Date created;
    @Column(name = "last_updated")
    @Temporal(TemporalType.TIMESTAMP)
    private Date lastUpdated;
@@ -88,6 +89,25 @@ public class Visit implements Serializable {
    private VisitVitals vitals;
    @OneToMany(cascade = CascadeType.ALL, mappedBy = "visit")
    private List<PatientMedication> medicationList;
+
+   public Visit() {
+   }
+
+   public Visit(Appointment appointment) {
+      this.appointmentId = appointment.getId();
+      this.categoryCode = appointment.getCategoryCode();
+      this.specialtyId = appointment.getSpecialtyId();
+      this.officeProvider = appointment.getOfficeProvider();
+      this.patient = appointment.getPatient();
+      this.servicePaymentTypeId = patient.getServicePaymentTypeId();
+      this.date = appointment.getDate();
+      this.time = new Date();
+      this.referringProviderNpi = appointment.getReferringProviderNpi();
+      this.status = "OPEN";
+      this.notes = appointment.getNotes();
+      this.authorizationNumber = appointment.getAuthorizationNumber();
+      this.primaryInsuranceId = patient.getPrimaryInsuranceId();
+   }
 
    public Integer getId() {
       return id;
@@ -334,7 +354,7 @@ public class Visit implements Serializable {
    public void setMedicationList(List<PatientMedication> medicationList) {
       this.medicationList = medicationList;
    }
-         
+
    @Override
    public int hashCode() {
       int hash = 0;
