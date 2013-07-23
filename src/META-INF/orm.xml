@@ -110,8 +110,7 @@
       <named-query name="ReferringProvider.similarReferringProviders">
          <query>
             SELECT r FROM ReferringProvider r
-            WHERE (((r.lastName = :lastName) AND (r.firstName = :firstName)) OR 
-            (r.npi = :npi))
+            WHERE r.lastName = :lastName AND r.firstName = :firstName AND r.npi &lt;&gt; :npi
          </query>
       </named-query>
    </entity>

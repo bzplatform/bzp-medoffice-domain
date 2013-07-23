@@ -55,6 +55,15 @@ public class OfficeSchedule implements Serializable {
    private Integer period4Index;
    private static Map<Character, String> periodMap = null;
 
+   public OfficeSchedule() {
+      this.classifierCode = 'S';
+      this.statusCode = 'A';
+      this.period1EveryValue = 0;
+      this.period2Index = 0;
+      this.period3Index = 0;
+      this.period4Index = 0;
+   }
+
    public Integer getId() {
       return id;
    }

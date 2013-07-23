@@ -27,6 +27,8 @@ public class ReferringProvider implements Serializable {
    private String suffix;
    @Column(name = "state_license_num")
    private String stateLicenseNum;
+   @Column(name = "provider_taxonomy_code")
+   private String providerTaxonomyCode;
    @Column(name = "phone")
    private String phone;
    @Column(name = "email")
@@ -39,7 +41,15 @@ public class ReferringProvider implements Serializable {
    private String state;
    @Column(name = "zip_code")
    private String zipCode;
+   @Column(name = "ads_id")
+   private String adsId;   
+   @Column(name = "active")
+   private boolean active;
 
+   public ReferringProvider() {
+      this.active = true;
+   }
+   
    public String getNpi() {
       return npi;
    }
@@ -92,6 +102,14 @@ public class ReferringProvider implements Serializable {
       this.stateLicenseNum = stateLicenseNum;
    }
 
+   public String getProviderTaxonomyCode() {
+      return providerTaxonomyCode;
+   }
+
+   public void setProviderTaxonomyCode(String providerTaxonomyCode) {
+      this.providerTaxonomyCode = providerTaxonomyCode;
+   }
+
    public String getPhone() {
       return phone;
    }
@@ -140,6 +158,22 @@ public class ReferringProvider implements Serializable {
       this.zipCode = zipCode;
    }
 
+   public String getAdsId() {
+      return adsId;
+   }
+
+   public void setAdsId(String adsId) {
+      this.adsId = adsId;
+   }
+
+   public boolean isActive() {
+      return active;
+   }
+
+   public void setActive(boolean active) {
+      this.active = active;
+   }
+   
    @Override
    public int hashCode() {
       int hash = 0;

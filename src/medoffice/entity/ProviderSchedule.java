@@ -85,6 +85,16 @@ public class ProviderSchedule implements Serializable {
    private static Map<Character, String> classifierMap = null;
    private static Map<Character, String> periodMap = null;
 
+   public ProviderSchedule() {
+      this.classifierCode = 'S';
+      this.statusCode = 'A';
+      this.period1EveryValue = 0;
+      this.period2Index = 0;
+      this.period3Index = 0;
+      this.period4Index = 0;
+      this.exceptOfficeHolidays = false;
+   }
+
    public Integer getId() {
       return id;
    }
