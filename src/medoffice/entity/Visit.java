@@ -377,6 +377,6 @@ public class Visit implements Serializable {
 
    @Override
    public String toString() {
-      return "medoffice.entity.Visits[visitID=" + id + "]";
+      return "medoffice.entity.Visits[id=" + id + "]";
    }
 }
