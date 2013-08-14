@@ -136,5 +136,15 @@
             ORDER BY v.patient.primaryInsuranceId, v.date
          </query>
       </named-query>
+   </entity>
+   <entity class="ServicePaymentType">
+      <named-query name="ServicePaymentType.findByCodes">
+         <query>
+            SELECT spt FROM ServicePaymentType spt
+            WHERE (:primaryInsuranceTypeCode IS NOT NULL AND spt.primaryInsuranceTypeCode = :primaryInsuranceTypeCode) AND
+            ((:secondaryInsuranceTypeCode IS NOT NULL AND spt.secondaryInsuranceTypeCode = :secondaryInsuranceTypeCode) OR
+            (:secondaryInsuranceTypeCode IS NULL AND spt.secondaryInsuranceTypeCode IS NULL))
+         </query>
+      </named-query>
    </entity>   
 </entity-mappings>
