@@ -664,6 +664,13 @@ public class Patient implements Serializable {
       }
       return null;
    }
+   
+   @Override
+   public int hashCode() {
+      int hash = 0;
+      hash += (this.id != null ? this.id.hashCode() : 0);
+      return hash;
+   }
 
    @Override
    public boolean equals(Object object) {
