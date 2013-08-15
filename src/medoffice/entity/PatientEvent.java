@@ -29,6 +29,8 @@ public class PatientEvent implements Serializable {
    private String event;
    @Column(name = "submitted")
    private boolean submitted;
+   @Column(name = "notes")
+   private String notes;
 
    public PatientEvent() {
    }
@@ -71,6 +73,14 @@ public class PatientEvent implements Serializable {
 
    public void setSubmitted(boolean submitted) {
       this.submitted = submitted;
+   }
+
+   public String getNotes() {
+      return notes;
+   }
+
+   public void setNotes(String notes) {
+      this.notes = notes;
    }
    
    @Override

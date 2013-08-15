@@ -10,6 +10,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "edi_account")
 public class EdiAccount implements Serializable {
+
    private static final long serialVersionUID = 1L;
    @Id
    @Basic(optional = false)
@@ -81,6 +82,15 @@ public class EdiAccount implements Serializable {
       this.unixTemp = unixTemp;
    }
 
+   public String getOutbox() {
+      return System.getProperty("os.name").contains("Windows") ? getWinOutbox() : getUnixOutbox();
+
+   }
+
+   public String getTemp() {
+      return System.getProperty("os.name").contains("Windows") ? getWinTemp() : getUnixTemp();
+   }
+
    @Override
    public int hashCode() {
       int hash = 0;
@@ -104,5 +114,5 @@ public class EdiAccount implements Serializable {
    @Override
    public String toString() {
       return "medoffice.entity.EdiAccount[code=" + code + "]";
-   }  
+   }
 }
