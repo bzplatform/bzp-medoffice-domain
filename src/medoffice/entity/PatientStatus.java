@@ -41,6 +41,8 @@ public class PatientStatus implements Serializable {
    @Column(name = "last_updated")
    @Temporal(TemporalType.TIMESTAMP)
    private Date lastUpdated;
+   @Column(name = "prepare_label")
+   private Boolean prepareLabel;
    @Transient
    private boolean persisted = true;
 
@@ -106,6 +108,14 @@ public class PatientStatus implements Serializable {
 
    public void setLastUpdated(Date lastUpdated) {
       this.lastUpdated = lastUpdated;
+   }
+
+   public Boolean getPrepareLabel() {
+      return prepareLabel;
+   }
+
+   public void setPrepareLabel(Boolean prepareLabel) {
+      this.prepareLabel = prepareLabel;
    }
 
    public boolean isPersisted() {
